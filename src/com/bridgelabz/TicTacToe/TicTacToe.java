@@ -251,17 +251,17 @@ public class TicTacToe {
     }
 
     public static void blockUser() {
-        if (gameArray[0] == userTurn && gameArray[1] == userTurn) {
+        if ((gameArray[0] == userTurn && gameArray[1] == userTurn) || (gameArray[0] == computerTurn && gameArray[1] == computerTurn)) {
             gameArray[2] = computerTurn;
         } else if (gameArray[3] == userTurn && gameArray[4] == userTurn) {
             gameArray[5] = computerTurn;
-        } else if (gameArray[6] == userTurn && gameArray[7] == userTurn) {
+        } else if ((gameArray[6] == userTurn && gameArray[7] == userTurn) || (gameArray[6] == computerTurn && gameArray[7] == computerTurn)) {
             gameArray[8] = computerTurn;
-        } else if (gameArray[0] == userTurn && gameArray[3] == userTurn) {
+        } else if ((gameArray[0] == userTurn && gameArray[3] == userTurn) || (gameArray[0] == computerTurn && gameArray[3] == computerTurn)) {
             gameArray[6] = computerTurn;
         } else if (gameArray[1] == userTurn && gameArray[4] == userTurn) {
             gameArray[7] = computerTurn;
-        } else if (gameArray[2] == userTurn && gameArray[5] == userTurn) {
+        } else if ((gameArray[2] == userTurn && gameArray[5] == userTurn) || (gameArray[2] == computerTurn && gameArray[5] == computerTurn)){
             gameArray[8] = computerTurn;
         } else if (gameArray[0] == userTurn && gameArray[4] == userTurn) {
             gameArray[8] = computerTurn;
