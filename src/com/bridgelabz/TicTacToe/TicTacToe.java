@@ -5,10 +5,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToe {
-    private static char userTurn;
-    private static char computerTurn;
+    public static char userTurn;
+    public static char computerTurn;
     public static int userPos;
     public static int computerPos;
+    public static char exitCode = '0';
     public static char[] gameArray = new char[10];
     public static Scanner scanner = new Scanner(System.in);
 
@@ -174,6 +175,68 @@ public class TicTacToe {
         }
     }
 
+    public static void winner(char symbol) {
+
+        if (gameArray[0] != ' ' && gameArray[0] == gameArray[1] && gameArray[1] == gameArray[2]) {
+            if (gameArray[0] == symbol) {
+                System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
+            } else {
+                System.out.println("\n\nComputer WINS THE GAME\n");
+            }
+            exitCode = '1';
+
+        } else if (gameArray[3] != ' ' && gameArray[3] == gameArray[4] && gameArray[4] == gameArray[5]) {
+            if (gameArray[3] == symbol) {
+                System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
+            } else {
+                System.out.println("\n\nComputer ONE WINS THE GAME\n");
+            }
+            exitCode = '1';
+        } else if (gameArray[7] != ' ' && gameArray[6] == gameArray[7] && gameArray[7] == gameArray[8]) {
+            if (gameArray[7] == symbol) {
+                System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
+            } else {
+                System.out.println("\n\nComputer ONE WINS THE GAME\n");
+            }
+            exitCode = '1';
+        } else if (gameArray[6] != ' ' && gameArray[0] == gameArray[3] && gameArray[3] == gameArray[6]) {
+            if (gameArray[6] == symbol) {
+                System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
+            } else {
+                System.out.println("\n\nComputer ONE WINS THE GAME\n");
+            }
+            exitCode = '1';
+        } else if (gameArray[1] != ' ' && gameArray[1] == gameArray[4] && gameArray[4] == gameArray[7]) {
+            if (gameArray[1] == symbol) {
+                System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
+            } else {
+                System.out.println("\n\nComputer ONE WINS THE GAME\n");
+            }
+            exitCode = '1';
+        } else if (gameArray[5] != ' ' && gameArray[2] == gameArray[5] && gameArray[5] == gameArray[8]) {
+            if (gameArray[5] == symbol) {
+                System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
+            } else {
+                System.out.println("\n\nComputer ONE WINS THE GAME\n");
+            }
+            exitCode = '1';
+        } else if (gameArray[4] != ' ' && gameArray[0] == gameArray[4] && gameArray[4] == gameArray[8]) {
+            if (gameArray[4] == symbol) {
+                System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
+            } else {
+                System.out.println("\n\nComputer ONE WINS THE GAME\n");
+            }
+            exitCode = '1';
+        } else if (gameArray[2] != ' ' && gameArray[2] == gameArray[4] && gameArray[4] == gameArray[6]) {
+            if (gameArray[2] == symbol) {
+                System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
+            } else {
+                System.out.println("\n\n Computer ONE WINS THE GAME\n");
+            }
+            exitCode = '1';
+        }
+    }
+
     public static void main(String[] args) {
         ticTacToe();
         userTurn = user(scanner);
@@ -187,15 +250,37 @@ public class TicTacToe {
         wonToss = rand1.nextInt(2);
 
         if (wonToss == Toss) {
-            moveLocation();
-            showBoard();
-            comLocation();
-            showBoard();
-        }else{
-            comLocation();
-            showBoard();
-            moveLocation();
-            showBoard();
+            while (true) {
+                moveLocation();
+                showBoard();
+                winner(userTurn);
+                if (exitCode == '1') {
+                    break;
+                }
+                comLocation();
+                showBoard();
+                winner(computerTurn);
+                if (exitCode == '1') {
+                    break;
+                }
+            }
+        } else {
+            while (true) {
+                comLocation();
+                showBoard();
+                winner(computerTurn);
+                if (exitCode == '1') {
+                    break;
+                }
+                moveLocation();
+                showBoard();
+                winner(userTurn);
+                if (exitCode == '1') {
+                    break;
+                }
+            }
         }
+
     }
 }
+
