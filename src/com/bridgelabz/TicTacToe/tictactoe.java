@@ -1,12 +1,7 @@
 package com.bridgelabz.TicTacToe;
-public class tictactoe {
-    public static char[] gameArray = new char[10];
+class Main {
 
-    public static void ticTacToe() {
-        for (int i = 0; i < gameArray.length; i++) {
-            gameArray[i] = ' ';
-        }
+    public static void main(String[] args) {
+        System.out.println("Tic Tac Toe problem");
     }
-
-
 }
