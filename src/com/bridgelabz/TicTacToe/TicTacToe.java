@@ -1,7 +1,10 @@
 package com.bridgelabz.TicTacToe;
-import java.util.*;
 
-public class tictactoe {
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class TicTacToe {
     public static char userTurn;
     public static char computerTurn;
     public static int userPos;
@@ -337,4 +340,5 @@ public class tictactoe {
 
     }
 }
+
 
